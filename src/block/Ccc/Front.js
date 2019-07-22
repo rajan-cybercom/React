@@ -1,32 +1,33 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Layout from './Core/Layout.js';
 import Template from './Core/Template.js';
 
-class Front extends Template
+class Front extends React.Component
 {
-	layout = null;
-	constructor()
+	static layout = null;
+	static init()
 	{
-		super();
-		this.setLayout();
+		Front.setLayout();
 		//this.render();
 	}
 
-	getLayout()
+	static getLayout()
 	{
-		return this.layout;
+		// var test = require('./test.js', 'test');
+		// console.log(test.test2);
+		return Front.layout;
 	}
 
-	setLayout()
+	static setLayout()
 	{
-		this.layout = new Layout();
+		Front.layout = new Layout();
 		return this;
 	}
 
-	render()
+	static renderLayout()
 	{
-		return this.getLayout().toHtml();
+		ReactDOM.render(Front.getLayout().toHtml(), document.getElementById('root'));
 	}
 }
 

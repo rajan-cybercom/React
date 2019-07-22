@@ -1,26 +1,24 @@
 import React from 'react';
 import TextList from './../../TextList';
 
+class Components extends React.Component{
+	static key = 0;
+}
 
-class Logo extends React.Component {
+class Logo extends Components {
 	render(){
-		return <h1>Logo</h1>;
+		return <h1 key = {Components.key++}>Logo</h1>;
 	}
 }
 
-class Title extends React.Component {
-	static count = 0;
-	constructor(props){
-		super();
-		// this.props = {key : "test"}
-		
-		// this.props = props;
-	}
+class Title extends Components {
 	render(){
-		// console.log(this.props = {key: 'test'});
-		this.props = this.count++;
-		return <h1>Title</h1>;
+		return (<h1 key = {Components.key++}>Title</h1>);
 	}
+}
+
+function Hello(props){
+	return props.obj.getRenderedBlocks()
 }
 
 class Contents extends TextList
@@ -35,18 +33,26 @@ class Contents extends TextList
 
 	setBlocks()
 	{
-		// this.addBlock('logo', ((new Logo({key : 'logo'})).render()));
-		this.addBlock('title', (new Title()).render());
-		this.setTemplate(<section> Main Content</section>);
+		this.addBlock('logo', Logo);
+		this.addBlock('title', Title);
+		// var template = <section> Main Content</section>;
+		// this.setTemplate(template);
 	}
 
 	preapareTemplate()
 	{
-		var div = [];
-		for (var [key,obj] of Object.entries(this.getBlocks()))
-		{
-			div.push(this.getBlock(key));
-		}
+
+
+		// var content = .map(i => i)
+		var arr = [this.getRenderedBlock('logo'), this.getRenderedBlock('title')];		
+		var div = arr;
+		// var div = [];
+		// for (var [key,obj] of Object.entries(this.getBlocks()))
+		// {
+		// 	div.push(this.getBlock(key));
+		// }
+		// (this.getBlocks()).map((key) => div.push(this.getBlock(key)));
+		// var div = <h1>Temp</h1> ;
 		this.setTemplate(div);
 	}
 }
