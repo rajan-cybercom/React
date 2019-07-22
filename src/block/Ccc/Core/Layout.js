@@ -19,9 +19,9 @@ class Layout extends Template
 		// this.addBlock('header', (new Header()).setLayout(this));
 		// this.addBlock('contents', (new Contents()).setLayout(this));
 		// this.addBlock('footer', (new Footer()).setLayout(this));
-		this.addBlock('header', Header);
-		this.addBlock('contents', Contents);
-		this.addBlock('footer', Footer);
+		this.addBlock('header', new Header());
+		this.addBlock('contents', new Contents());
+		this.addBlock('footer', new Footer());
 	}
 
 	preapareTemplate()

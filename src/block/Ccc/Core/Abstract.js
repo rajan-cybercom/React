@@ -28,10 +28,10 @@ class Abstract extends React.Component
 	}
 	createBlock(className){
 		// console.log(className);
-		var obj = new className();
-		console.log(obj);
+		//var obj = new className();
+		// console.log(obj);
 		// obj.setLayout(this.getLayout());
-		return obj;
+		// return obj;
 	}
 	getBlocks()
 	{
@@ -45,7 +45,7 @@ class Abstract extends React.Component
 			return null;
 		}
 		var div = [];
-		for (var [key,obj] of Object.entries(this.getBlocks()))
+		for (var [key] of Object.entries(this.getBlocks()))
 		{
 			div.push(this.getBlock(key).render());
 		}
@@ -55,7 +55,7 @@ class Abstract extends React.Component
 
 	addBlock(key, block)
 	{
-		this.blocks[key] = this.createBlock(block);
+		this.blocks[key] = block;
 		return this;
 	}
 

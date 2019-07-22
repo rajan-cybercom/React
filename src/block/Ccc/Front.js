@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './Core/Layout.js';
-import Template from './Core/Template.js';
 
 class Front extends React.Component
 {
@@ -9,13 +8,10 @@ class Front extends React.Component
 	static init()
 	{
 		Front.setLayout();
-		//this.render();
 	}
 
 	static getLayout()
 	{
-		// var test = require('./test.js', 'test');
-		// console.log(test.test2);
 		return Front.layout;
 	}
 
@@ -32,5 +28,3 @@ class Front extends React.Component
 }
 
 export default Front;
-
-// this.getLayout().createBlock('header').toHtml();

@@ -1,25 +1,26 @@
 import React from 'react';
 import TextList from './../../TextList';
+// import Style from '/src/css/style.css';
 
 class Components extends React.Component{
 	static key = 0;
 }
 
-class Logo extends Components {
+// export class Logo extends React.Component {
+// 	render(){
+// 		return <span key = {Components.key++}><h1>Logo</h1></span>;
+// 	}
+// }
+
+class Title extends React.Component {
 	render(){
-		return <h1 key = {Components.key++}>Logo</h1>;
+		return <span key = {Components.key++}><h1>Title</h1></span>;
 	}
 }
 
-class Title extends Components {
-	render(){
-		return (<h1 key = {Components.key++}>Title</h1>);
-	}
-}
-
-function Hello(props){
-	return props.obj.getRenderedBlocks()
-}
+// function Hello(props){
+// 	return props.obj.getRenderedBlocks()
+// }
 
 class Contents extends TextList
 {
@@ -33,26 +34,13 @@ class Contents extends TextList
 
 	setBlocks()
 	{
-		this.addBlock('logo', Logo);
-		this.addBlock('title', Title);
-		// var template = <section> Main Content</section>;
-		// this.setTemplate(template);
+		// this.addBlock('logo', new Logo());
+		this.addBlock('title', new Title());
 	}
 
 	preapareTemplate()
 	{
-
-
-		// var content = .map(i => i)
-		var arr = [this.getRenderedBlock('logo'), this.getRenderedBlock('title')];		
-		var div = arr;
-		// var div = [];
-		// for (var [key,obj] of Object.entries(this.getBlocks()))
-		// {
-		// 	div.push(this.getBlock(key));
-		// }
-		// (this.getBlocks()).map((key) => div.push(this.getBlock(key)));
-		// var div = <h1>Temp</h1> ;
+		var div = this.getRenderedBlocks();
 		this.setTemplate(div);
 	}
 }
