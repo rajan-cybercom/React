@@ -1,25 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import TextList from './../../TextList';
-// import Style from '/src/css/style.css';
-
-class Components extends React.Component{
-	static key = 0;
-}
+import Title from './Contents/Title'
+import Logo from './Contents/Logo'
 
 // export class Logo extends React.Component {
 // 	render(){
 // 		return <span key = {Components.key++}><h1>Logo</h1></span>;
 // 	}
-// }
-
-class Title extends React.Component {
-	render(){
-		return <span key = {Components.key++}><h1>Title</h1></span>;
-	}
-}
-
-// function Hello(props){
-// 	return props.obj.getRenderedBlocks()
 // }
 
 class Contents extends TextList
@@ -34,8 +21,8 @@ class Contents extends TextList
 
 	setBlocks()
 	{
-		// this.addBlock('logo', new Logo());
-		this.addBlock('title', new Title());
+		this.addBlock('logo', Logo);
+		this.addBlock('title', Title);
 	}
 
 	preapareTemplate()
